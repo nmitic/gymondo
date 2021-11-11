@@ -1,5 +1,7 @@
 import fetch from 'node-fetch';
 import uniqid from 'uniqid';
+import randomSentence from 'random-sentence';
+import randomWords from 'random-words';
 import { getRandomDateInRange } from './utils/generateRandomDate.mjs';
 import { getRandomCategory } from './utils/getRandomCategory.mjs';
 
@@ -54,10 +56,17 @@ const createWorkout = ({title, description, startDate, category, slug}) => {
     .then(data => console.log('data returned:', data));
 }
 
-createWorkout({
-  title: "Tone your brain",
-  description: 'Just take coffee and if your brain is not strong enough then take some more, watch for your heart tho!',
-  startDate: getRandomDateInRange(new Date(2017, 2, 2), new Date(2017, 3, 3)),
-  category: getRandomCategory(),
-  slug: `tone-your-brain-${uniqid()}`
-});
+const createRandomWorkouts = quantity => {
+  const randomSlugTitle = randomWords({min: 1, max: 3, join: ' '});
+  createWorkout({
+    title: randomSlugTitle,
+    description: randomSentence({min: 4, max: 14}),
+    startDate: getRandomDateInRange(new Date(2021, 8, 8), new Date(2023, 3, 3)),
+    category: getRandomCategory(),
+    slug: `${randomSlugTitle}-${uniqid()}`
+  });
+
+  quantity && --quantity && createRandomWorkouts(quantity);
+}
+
+createRandomWorkouts(2)
