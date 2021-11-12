@@ -38,7 +38,7 @@ const mutationQuery = `
 `;
 
 const createWorkout = ({title, description, startDate, category, slug}) => {
-  fetch(GRAPH_CMS_CONTENT_API, {
+  return fetch(GRAPH_CMS_CONTENT_API, {
     method: 'post',
     body: JSON.stringify({
       query: mutationQuery,
@@ -56,9 +56,9 @@ const createWorkout = ({title, description, startDate, category, slug}) => {
     .then(data => console.log('data returned:', data));
 }
 
-const createRandomWorkouts = quantity => {
+const createRandomWorkouts = async quantity => {
   const randomSlugTitle = randomWords({min: 1, max: 3, join: ' '});
-  createWorkout({
+  await createWorkout({
     title: randomSlugTitle,
     description: randomSentence({min: 4, max: 14}),
     startDate: getRandomDateInRange(new Date(2021, 8, 8), new Date(2023, 3, 3)),
@@ -69,4 +69,4 @@ const createRandomWorkouts = quantity => {
   quantity && --quantity && createRandomWorkouts(quantity);
 }
 
-createRandomWorkouts(2)
+createRandomWorkouts(1000);
