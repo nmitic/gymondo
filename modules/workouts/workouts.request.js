@@ -1,8 +1,8 @@
 
 import { CONTENT_API_PATH } from "../../graphQL/api-paths";
-import { homeRequestQuery } from './home.query';
+import { homeRequestQuery } from './workouts.query';
 
-export const getHomePageData = async ({pageNumber, limit}) => {
+export const getWorkoutsData = async ({pageNumber, limit}) => {
   const res = await fetch(CONTENT_API_PATH, {
     method: 'POST',
     body: JSON.stringify({
