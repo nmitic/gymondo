@@ -1,4 +1,4 @@
-import Home, { getHomePageData } from '../modules/home';
+import Home, { getHomePageData } from '../../modules/home';
 
 export default Home;
 

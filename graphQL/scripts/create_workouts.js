@@ -58,15 +58,16 @@ const createWorkout = ({title, description, startDate, category, slug}) => {
 
 const createRandomWorkouts = async quantity => {
   const randomSlugTitle = randomWords({min: 1, max: 3, join: ' '});
+  
   await createWorkout({
     title: randomSlugTitle,
     description: randomSentence({min: 4, max: 14}),
     startDate: getRandomDateInRange(new Date(2021, 8, 8), new Date(2023, 3, 3)),
     category: getRandomCategory(),
-    slug: `${randomSlugTitle}-${uniqid()}`
+    slug: `${randomSlugTitle.replaceAll(' ', '-')}-${uniqid()}`
   });
 
   quantity && --quantity && createRandomWorkouts(quantity);
 }
 
-createRandomWorkouts(1000);
+createRandomWorkouts(2);
