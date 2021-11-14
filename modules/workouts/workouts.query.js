@@ -1,4 +1,4 @@
-export const homeRequestQuery = `
+export const workoutsRequestQuery = `
   query WorkoutsQuery($pageNumber: Int, $limit: Int) {
     workouts(first: $limit, skip: $pageNumber) {
       title

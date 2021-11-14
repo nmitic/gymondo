@@ -3,7 +3,7 @@ import WorkoutDetailPage, { getWorkoutDetailData } from '../../modules/workout-d
 export default WorkoutDetailPage;
 
 export async function getServerSideProps(context) {
-  const data = await getWorkoutDetailData({slug: context.params.slug})
+  const { data } = await getWorkoutDetailData({slug: context.params.slug})
 
   if (!data) {
     return {

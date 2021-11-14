@@ -1,9 +1,9 @@
-import Home, { getHomePageData } from '../modules/home';
+import Home, { getHomeData } from '../modules/home';
 
 export default Home;
 
 export async function getServerSideProps(context) {
-  const data = await getHomePageData({pageNumber: 1, limit: 20});
+  const { data } = await getHomeData({slug: 'home'});
 
   if (!data) {
     return {
