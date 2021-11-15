@@ -70,4 +70,4 @@ const createRandomWorkouts = async quantity => {
   quantity && --quantity && createRandomWorkouts(quantity);
 }
 
-createRandomWorkouts(2);
+createRandomWorkouts(1000);

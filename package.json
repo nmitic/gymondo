@@ -8,15 +8,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "html-react-parser": "^1.4.0",
     "next": "12.0.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sass": "^1.43.4"
+    "sass": "^1.43.4",
+    "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.0",
     "eslint": "7",
     "eslint-config-next": "12.0.3",
     "node-fetch": "^3.1.0",
+    "postcss": "^8.3.11",
     "random-sentence": "^1.0.4",
     "random-words": "^1.1.1",
     "uniqid": "^5.4.0"

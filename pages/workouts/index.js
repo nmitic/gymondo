@@ -3,7 +3,9 @@ import Home, { getWorkoutsData } from '../../modules/workouts';
 export default Home;
 
 export async function getServerSideProps() {
-  const { data } = await getWorkoutsData({pageNumber: 1, limit: 20});
+  const { 
+    data: {workouts: data, workoutsConnection: {aggregate: count}} 
+  } = await getWorkoutsData({pageNumber: 1, limit: 10});
 
   if (!data) {
     return {
@@ -13,7 +15,8 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      data
+      data,
+      count
     }
   }
 }

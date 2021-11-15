@@ -7,5 +7,10 @@ export const workoutsRequestQuery = `
       slug
       startDate
     }
+    workoutsConnection {
+      aggregate {
+        count
+      }
+    }
   }
 `;
