@@ -4,7 +4,8 @@ import { Pagination } from './pagination';
 
 const Workouts = ({data, totalCount}) => {
   const router = useRouter();
-  const currentPage = parseInt(router.query.page);
+  const currentPage = router.query.page ? parseInt(router.query.page) : 1;
+  const currentLimit = router.query.limit ? parseInt(router.query.limit) : 20;
 
   return (
     <>
@@ -29,7 +30,11 @@ const Workouts = ({data, totalCount}) => {
           );
         })}
       </div>
-      <Pagination totalCount={totalCount} currentPage={currentPage} />
+      <Pagination 
+        totalCount={totalCount}
+        currentPage={currentPage}
+        currentLimit={currentLimit}
+      />
     </>
   )
 }

@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 const Pagination = ({
   totalCount,
+  currentLimit,
   currentPage
 }) => {
   const activeClassNames = 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600';
@@ -26,7 +27,7 @@ const Pagination = ({
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <div>
           <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
-            <Link href={{ pathname: '/workouts', query: { page: currentPage - 1 } }}>
+            <Link href={{ pathname: '/workouts', query: { page: currentPage - 1, limit: currentLimit } }}>
               <a aria-current="page" className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                 <span className="sr-only">Previous</span>
                 <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -35,11 +36,11 @@ const Pagination = ({
               </a>
             </Link>
             {
-              generatePaginationCount(Math.round(totalCount / 20), currentPage, 3, 3, 6).map((count, index) => {
+              generatePaginationCount(Math.round(totalCount / currentLimit), currentPage, 3, 3, 6).map((count, index) => {
                 const paginationClassName = currentPage === count ? activeClassNames : inactiveClassNames;
                 if(count) {
                   return (
-                    <Link key={index} href={{ pathname: '/workouts', query: { page: count } }}>
+                    <Link key={index} href={{ pathname: '/workouts', query: { page: count, limit: currentLimit } }}>
                       <a aria-current="page" className={`${paginationClassName} relative inline-flex items-center px-4 py-2 border text-sm font-medium`}>
                         {count}
                       </a>
@@ -54,7 +55,7 @@ const Pagination = ({
                 }
               })
             }
-            <Link href={{ pathname: '/workouts', query: { page: currentPage + 1 } }}>
+            <Link href={{ pathname: '/workouts', query: { page: currentPage + 1, limit: currentLimit } }}>
               <a aria-current="page" className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                 <span className="sr-only">Next</span>
                 <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
