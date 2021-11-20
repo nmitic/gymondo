@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import parse from 'html-react-parser';
-import styles from './home.module.scss';
 
 import { RichText } from './rich-text';
 
@@ -13,11 +12,13 @@ const Home = ({data: {
   return (
    <div className="m-auto max-w-lg mt-10">
     <Image src={url} alt="image-hero" layout="fill"/>
-    <div className={styles['hero-intro-text']}>
-      <RichText>
-        {parse(html)}
-      </RichText>
-      <button className={styles['hero-cta-btn']}>
+    <div className="relative text-white">
+      <div className="mb-10">
+        <RichText>
+          {parse(html)}
+        </RichText>
+      </div>
+      <button className="bg-transparent hover:bg-gymondo text-gymondo font-semibold hover:text-white py-2 px-4 border border-gymondo hover:border-transparent rounded">
         <Link href="/workouts">{ctaButtonLabel}</Link>
       </button>
     </div>

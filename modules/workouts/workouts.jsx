@@ -12,15 +12,15 @@ const Workouts = ({data, totalCount}) => {
   }
 
   return (
-    <div className="pb-16">
-      <div className="grid grid-cols-3 gap-4 m-auto max-w-2xl pb-1">
+    <div className="pb-10">
+      <div className="grid grid-cols-3 gap-4 m-auto max-w-2xl pb-10 pt-10">
         {data.map(workout => {
           return (
             <Link
               key={workout.slug}
               href={`/workouts/${encodeURIComponent(workout.slug)}`}
             >
-              <a>
+              <a className="hover:border-gymondo border-2 transition-all p-2">
                 <h1 className="text-2xl mb-4">{workout.title}</h1>
                 <p className="text-sm mb-3">{workout.description}</p>
                 <p className="text-m mb-3">{workout.category}</p>

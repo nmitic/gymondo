@@ -1,27 +1,9 @@
 .rich-text {
   h1 {
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    text-align: left;
-    font-family: GuillonDemi,sans-serif;
-    font-weight: 400;
-    color: #fff;
-    line-height: 1.1;
     font-size: 52px;
   }
 
   p {
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    text-align: left;
-    margin: 0 0 3rem;
-    color: #fff;
-    font-family: Guillon,sans-serif;
-    font-weight: 400;
-    display: flex;
-    flex-grow: 1;
-    max-width: 550px;
-    line-height: 1.4;
     font-size: 20px;
   }
 }

@@ -11,7 +11,7 @@ const Pagination = ({
     category
   }
 }) => {
-  const activeClassNames = 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600';
+  const activeClassNames = 'z-10 border-gymondo text-gymondo';
   const inactiveClassNames = 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50';
   const paginationCount = Math.round(totalCount / currentLimit);
   const showLeftArrow = currentPage >= 1;
