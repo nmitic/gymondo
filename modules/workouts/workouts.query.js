@@ -5,6 +5,7 @@ export const workoutsRequestQuery = `
       skip: $pageNumber
       where: $filter
     ) {
+      id
       title
       description
       category

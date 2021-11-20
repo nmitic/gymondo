@@ -1,2 +1,4 @@
 - ui lib should be used
 - auth should be added
+- no found when no result match criteria
+- proper error handling
