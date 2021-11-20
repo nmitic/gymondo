@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { Pagination } from './pagination';
 import WorkoutTile from './workout-tile';
+import WorkoutFilter from './workout-filter';
 
 const Workouts = ({data, totalCount}) => {
   const router = useRouter();
@@ -13,6 +14,7 @@ const Workouts = ({data, totalCount}) => {
 
   return (
     <div className="pb-10">
+      <WorkoutFilter />
       <div className="grid grid-cols-3 gap-4 m-auto max-w-2xl pb-10 pt-10">
         {data.map(workout => 
           <WorkoutTile 
