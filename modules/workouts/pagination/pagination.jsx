@@ -5,16 +5,20 @@ const generatePaginationCount = paginationCount => Array.from({ length: paginati
 const Pagination = ({
   totalCount,
   currentLimit,
-  currentPage
+  currentPage,
+  filterQuery: {
+    startDate,
+    category
+  }
 }) => {
   const activeClassNames = 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600';
   const inactiveClassNames = 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50';
   const paginationCount = Math.round(totalCount / currentLimit);
-  const showLeftArrow = currentPage !== 1;
-  const showRIghtArrow = currentPage !== paginationCount;
+  const showLeftArrow = currentPage >= 1;
+  const showRightArrow = currentPage + 1 < paginationCount;
 
   return (
-    <div className="m-auto mt-5 max-w-2xl sticky">
+    <div className="m-auto max-w-2xl fixed left-0 right-0 bottom-0">
       <div className="bg-white flex items-center justify-between border-gray-200">
         <div>
           <p className="text-sm text-gray-700 mr-3">
@@ -37,28 +41,30 @@ const Pagination = ({
           <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
             {
               generatePaginationCount(paginationCount).map((count, index) => {
-                const paginationClassName = currentPage === count ? activeClassNames : inactiveClassNames;
-                if (count) {
-                  return (
-                    <Link key={index} href={{ pathname: '/workouts', query: { page: count, limit: currentLimit } }}>
-                      <a aria-current="page" className={`${paginationClassName} relative inline-flex items-center px-4 py-2 border text-sm font-medium`}>
-                        {count}
-                      </a>
-                    </Link>
-                  )
-                } else {
-                  return (
-                    <span key={index} className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
-                      ...
-                    </span>
-                  )
-                }
+                const paginationClassName = currentPage === count - 1 ? activeClassNames : inactiveClassNames;
+                return (
+                  <Link 
+                    key={index} 
+                    href={{ 
+                      pathname: '/workouts', 
+                      query: { 
+                        page: count - 1, 
+                        limit: currentLimit,
+                        ...(Boolean(startDate) && {startDate}),
+                        ...(Boolean(category) && {category}),
+                      }
+                    }}>
+                    <a aria-current="page" className={`${paginationClassName} relative inline-flex items-center px-4 py-2 border text-sm font-medium`}>
+                      {count}
+                    </a>
+                  </Link>
+                )
               })
             }
           </nav>
         </div>
         {
-          showRIghtArrow && (
+          showRightArrow && (
             <Link href={{ pathname: '/workouts', query: { page: currentPage + 1, limit: currentLimit } }}>
               <a aria-current="page" className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
                 <span className="sr-only">Next</span>
