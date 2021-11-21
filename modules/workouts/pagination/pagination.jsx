@@ -18,7 +18,7 @@ const Pagination = ({
   const showRightArrow = currentPage + 1 < paginationCount;
 
   return (
-    <div className="m-auto max-w-2xl fixed left-0 right-0 bottom-0">
+    <div className="m-auto max-w-2xl fixed bottom-0 left-1/2 -translate-x-1/2 transform">
       <div className="bg-white flex items-center justify-between border-gray-200">
         <div>
           <p className="text-sm text-gray-700 mr-3">

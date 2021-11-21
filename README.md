@@ -2,3 +2,12 @@
 - auth should be added
 - no found when no result match criteria
 - proper error handling
+- layout wrapper comonents
+- proptypes
+- graphCMS WHY
+- GraphCMS unstable
+- Storybook for module documenations
+- folder structure
+- losley coupled modules
+- Styles
+- No responsive layouts
