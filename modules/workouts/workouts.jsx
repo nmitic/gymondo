@@ -15,7 +15,7 @@ const Workouts = ({data, totalCount}) => {
   return (
     <div className="pb-10">
       <WorkoutFilter />
-      <div className="grid grid-cols-3 gap-4 m-auto max-w-2xl pb-10 pt-10">
+      <div className="grid grid-cols-3 gap-4 m-auto max-w-2xl pb-10">
         {data.map(workout => 
           <WorkoutTile 
             title={workout.title}
