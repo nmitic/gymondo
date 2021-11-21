@@ -71,6 +71,7 @@ const WorkoutFilter = ({}) => {
         ...(Boolean(startDate !== initialState.startDate) && {startDate}),
         ...(Boolean(category !== initialState.category) && {category}),
         page: 0,
+        limit: 20
       }
     })
   }
