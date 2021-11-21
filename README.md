@@ -108,4 +108,7 @@ Using react test lib, or any other tool, with the focus on testing render method
 
 I do not think that commenting every line is needed, it is a sign that your code if not clear enough, however nothing is wrong with few comments explaining why certain logic is implemented in a way that it is.
 
+
 - And many other things :)
+
+For example, many hardcoded values, many unsafe destructuring etc
