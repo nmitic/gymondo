@@ -8,7 +8,7 @@ const WorkoutDetailPage = ({data}) => {
           dateTime={data.startDate}
           className="text-lg"
         >
-          date: {data.startDate}
+          DATE: {data.startDate}
         </time>
       </p>
       <p className="text-m mb-3">category: {data.category}</p>
